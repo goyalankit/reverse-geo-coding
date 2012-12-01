@@ -11,6 +11,7 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.3.1)
+    ruby-progressbar (1.0.2)
     slop (3.3.3)
 
 PLATFORMS
@@ -20,3 +21,4 @@ DEPENDENCIES
   faraday
   json
   pry
+  ruby-progressbar
