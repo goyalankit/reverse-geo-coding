@@ -31,10 +31,10 @@ Installation:
 
 To run the server use:
 
-    ruby application.rb
+    rackup
     
 Simple go to 
 
-    localhost:4567/upload
+    localhost:9292/upload
 
 you'll see a form to upload file and later you'll be asked to input name for ouput file and then run the script.
