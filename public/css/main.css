@@ -1,0 +1,25 @@
+.header, .header-success {
+    color: #2E2E2E;
+    margin-left: 26%;
+    margin-top: 15%;
+}
+
+.header-success{
+  margin-left: 43%;
+}
+
+.main_form {
+    margin-left: 38%;
+}
+
+body {
+    background-color: #222930;
+}
+
+.div {
+    background-color: #4EB1BA;
+}
+
+#button-sub {
+    margin-left: 9%;
+}

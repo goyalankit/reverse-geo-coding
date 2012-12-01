@@ -1,0 +1,12 @@
+%html
+  %head
+    %link(rel="stylesheet" href="css/main.css")
+  %body
+    .div
+      .header-success
+        %h1
+          = "Success! "
+        %h3 
+          = "#{@count} records processed"
+        %a(href="#{@url}")
+          download file("#{@url.split('/')[1]}")

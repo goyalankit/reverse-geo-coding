@@ -1,7 +1,14 @@
 %html
+  %head
+    %link(rel="stylesheet" href="css/main.css") 
   %body
-    %h1 File uploader!
-    %form(method="post" enctype='multipart/form-data')   
-      %input(type='file' name='myfile')    
-      %br
-      %input(type='submit' value='Upload!')
+    .div
+      .header
+        %h1 upload csv with latitude, longitude and id
+      .main_form
+        %form(method="post" enctype='multipart/form-data')   
+          %input(type='file' name='myfile')    
+          %br
+          %br
+          #button-sub
+            %input(type='submit' value='Upload!')
