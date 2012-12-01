@@ -2,21 +2,28 @@ require 'csv'
 require 'bundler'
 Bundler.require
 
-get "/upload" do
-   haml :upload
-end
+class ReverseGeocode < Sinatra::Base
 
-post "/upload" do
-  File.open('uploads/' + params['myfile'][:filename], "w") do |f|
-    f.write(params['myfile'][:tempfile].read)
+  get "/" do
+    redirect '/upload'
   end
-  @@filename = params['myfile'][:filename]
-  haml :success
-end
 
-get "/reverse_geo_code_it" do
-  reverse_geo_code("uploads/#{@@filename}", "uploads/#{params["output_filename"]}")
-  return "done successfully"
+  get "/upload" do
+     haml :upload
+  end
+
+  post "/upload" do
+    File.open('uploads/' + params['myfile'][:filename], "w") do |f|
+      f.write(params['myfile'][:tempfile].read)
+    end
+    @@filename = params['myfile'][:filename]
+    haml :success
+  end
+
+  get "/reverse_geo_code_it" do
+    reverse_geo_code("uploads/#{@@filename}", "uploads/#{params["output_filename"]}")
+    return "done successfully"
+  end
 end
 
 def reverse_geo_code input_file_name, output_file_name
