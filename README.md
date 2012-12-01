@@ -1,7 +1,7 @@
 reverse-geo-coding: using PlaceFinder API of Yahoo!
 ===================================================
 
-This is a simple ruby script to translate a location into a human-readable address. There are two branches associated with this project.
+This is a simple ruby script to translate location into a human-readable address. There are two branches associated with this project.
 
 * master
 * web-interface
