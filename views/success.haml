@@ -1,0 +1,10 @@
+%html
+  %body
+    %h1
+      = "#{@@filename} successfully uploaded."
+    %h4 Give the output file name
+    %form(method="get" action="/reverse_geo_code_it")
+      %input(type="text" name="output_filename") .csv
+      %br
+      %br
+      %input(type="submit" value="Reverse Geocode it")
