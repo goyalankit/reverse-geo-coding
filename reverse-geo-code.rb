@@ -1,9 +1,8 @@
 #!/usr/bin/ruby
 require 'csv'
-require 'bundler'
-Bundler.require
-
-
+require 'faraday'
+require 'json'
+require 'ruby-progressbar'
 
 input_file_name  = ARGV[0] || "lat_long.csv"
 output_file_name = ARGV[1] || "lat_long_reverse_coded.csv"
