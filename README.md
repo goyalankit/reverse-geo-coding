@@ -27,7 +27,7 @@ It's a very simple sinatra app with a web interface, where one can upload file a
 
 Installation:
     
-    git clone --branch=master git@github.com:ankitunique/reverse-geo-coding.git
+    git clone --branch=web-interface git@github.com:ankitunique/reverse-geo-coding.git
 
 To run the server use:
 
