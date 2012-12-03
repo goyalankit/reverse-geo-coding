@@ -5,8 +5,7 @@
     .div
       .header-success
         %h1
-          = "Success! "
+          = "uploaded Successfully. Processing intiated "
         %h3 
-          = "#{@count} records processed"
         %a(href="#{@url}")
-          download file("#{@url.split('/')[1]}")
+          download file("#{@url}")

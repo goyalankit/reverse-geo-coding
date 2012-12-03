@@ -1,5 +1,6 @@
 require 'csv'
 require 'bundler'
+require 'logger'
 Bundler.require
 
 class ReverseGeocode < Sinatra::Base
@@ -13,21 +14,35 @@ class ReverseGeocode < Sinatra::Base
   end
 
   post "/upload" do
+    @logger = Logger.new("geo_code.log")
+    
     File.open('public/uploads/' + params['myfile'][:filename], "w") do |f|
       f.write(params['myfile'][:tempfile].read)
     end
-    @@filename = params['myfile'][:filename]
-    @filename = @@filename
-    haml :success
-  end
 
-  get "/reverse_geo_code_it" do
-    reverse_geo_code("public/uploads/#{@@filename}", "public/uploads/#{params['output_filename']}.csv")
-    @count = %x{wc -l "public/uploads/#{@@filename}"}.split.first.to_i
-    @url = "uploads/#{params['output_filename']}.csv"
+    @filename         = params['myfile'][:filename]
+    @output_filename = "#{@filename}_processed_#{Time.now.strftime('%Y%m%d%H')}.csv"
+
+    child = fork do
+      @logger.info("process started at #{Time.now}")
+      begin
+        reverse_geo_code("public/uploads/#{@filename}", "public/uploads/processed/#{@output_filename}")
+      rescue StandardError => e
+        @logger.error e
+        @logger.error e.backtrace
+      end
+      @logger.info("process finished at #{Time.now}")
+    end
+    Process.detach(child)
+    @url = "uploads/processed/#{@output_filename}"
     haml :output
   end
+
+  get "/log" do
+    return %x{tail -2 geo_code.log}.gsub(',', '<br/>')
+  end
 end
+
 
 def reverse_geo_code input_file_name, output_file_name
   output_file_name = output_file_name || "reverse_geo_coded_#{input_file_name}"
