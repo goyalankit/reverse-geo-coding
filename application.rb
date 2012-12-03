@@ -34,12 +34,11 @@ class ReverseGeocode < Sinatra::Base
       @logger.info("process finished at #{Time.now}")
     end
     Process.detach(child)
-    @url = "uploads/processed/#{@output_filename}"
-    haml :output
+    redirect '/log'
   end
 
   get "/log" do
-    return %x{tail -2 geo_code.log}.gsub(',', '<br/>')
+    return %x{tail -5 geo_code.log}.gsub(',', '<br/>')
   end
 end
 
@@ -69,4 +68,6 @@ def reverse_geo_code input_file_name, output_file_name
       p json_response.merge( {:latitude => latitude, :longitude => longitude})
     end
   end
+  output_file_name = output_file_name.sub('public','')
+  @logger.info(",,<a href='#{output_file_name}'>Download file<\/a>")
 end

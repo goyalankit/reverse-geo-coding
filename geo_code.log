@@ -9,3 +9,18 @@ I, [2012-12-03T12:15:08.864959 #11493]  INFO -- : process started at Mon Dec 03 
 I, [2012-12-03T12:15:16.046061 #11493]  INFO -- : process finished at Mon Dec 03 12:15:16 +0530 2012
 I, [2012-12-03T12:16:10.831814 #11527]  INFO -- : process started at Mon Dec 03 12:16:10 +0530 2012
 I, [2012-12-03T12:16:17.119961 #11527]  INFO -- : process finished at Mon Dec 03 12:16:17 +0530 2012
+I, [2012-12-03T12:50:05.947925 #13302]  INFO -- : process started at Mon Dec 03 12:50:05 +0530 2012
+I, [2012-12-03T12:50:25.736232 #13302]  INFO -- : , , Download file at: <a href='/public/upload/processed/public/uploads/processed/lat_long.csv_processed_2012120312.csv'>
+I, [2012-12-03T12:50:25.736429 #13302]  INFO -- : process finished at Mon Dec 03 12:50:25 +0530 2012
+I, [2012-12-03T12:51:22.042859 #13411]  INFO -- : process started at Mon Dec 03 12:51:22 +0530 2012
+I, [2012-12-03T12:51:35.050729 #13411]  INFO -- : , , Download file at: <a href='public/uploads/processed/lat_long.csv_processed_2012120312.csv'>
+I, [2012-12-03T12:51:35.050964 #13411]  INFO -- : process finished at Mon Dec 03 12:51:35 +0530 2012
+I, [2012-12-03T12:53:38.098975 #13482]  INFO -- : process started at Mon Dec 03 12:53:38 +0530 2012
+I, [2012-12-03T12:53:47.011566 #13482]  INFO -- : , , Download file at: <a href='/uploads/processed/lat_long.csv_processed_2012120312.csv'>
+I, [2012-12-03T12:53:47.011963 #13482]  INFO -- : process finished at Mon Dec 03 12:53:47 +0530 2012
+I, [2012-12-03T12:54:16.755945 #13529]  INFO -- : process started at Mon Dec 03 12:54:16 +0530 2012
+I, [2012-12-03T12:54:22.668680 #13529]  INFO -- : , , Download file at: <a href='/uploads/processed/lat_long.csv_processed_2012120312.csv'>
+I, [2012-12-03T12:54:22.669080 #13529]  INFO -- : process finished at Mon Dec 03 12:54:22 +0530 2012
+I, [2012-12-03T12:55:22.701884 #13568]  INFO -- : process started at Mon Dec 03 12:55:22 +0530 2012
+I, [2012-12-03T12:55:29.424974 #13568]  INFO -- : ,,<a href='/uploads/processed/lat_long.csv_processed_2012120312.csv'>Download file</a>
+I, [2012-12-03T12:55:29.425353 #13568]  INFO -- : process finished at Mon Dec 03 12:55:29 +0530 2012
