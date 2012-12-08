@@ -60,7 +60,7 @@ def reverse_geo_code input_file_name, output_file_name
     response  = Faraday.get "http://where.yahooapis.com/geocode?q=#{latitude},#{longitude}&gflags=AR&flags=J&appid=#{ENV['app_id']}"
     json_response    =  JSON.parse(response.body)["ResultSet"]
 
-    if json_response["Found"] > 0
+    if json_response["Found"].to_i > 0
       result = json_response["Results"].first
       csv ="#{place_id}|#{result['line4']}| #{result['line3']}| #{result['line2']}| #{result['line1']}| #{result['offsetlat']}| #{result['county']}| #{result['house']}| #{result['offsetlon']}| #{result['countrycode']}| #{result['postal']}| #{result['longitude']}| #{result['state']}| #{result['street']}| #{result['country']}| #{result['latitude']}| #{result['cross']}| #{result['radius']}| #{result['quality']}| #{result['city']}| #{result['neighborhood']}" 
       File.open(output_file_name, 'a') { |f| f.write("#{csv}\n") }
