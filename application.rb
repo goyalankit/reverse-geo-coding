@@ -56,6 +56,7 @@ def reverse_geo_code input_file_name, output_file_name
     begin
       json_response    =  JSON.parse(response.body)["ResultSet"]
     rescue
+      p "error"
       next
     end
 
@@ -69,5 +70,5 @@ def reverse_geo_code input_file_name, output_file_name
   end
   output_file_name = output_file_name.sub('public','')
   @logger.info(",,<a href='#{output_file_name}'>Download file<\/a>")
-  sleep(7)
+  sleep(5 + rand(7))
 end
