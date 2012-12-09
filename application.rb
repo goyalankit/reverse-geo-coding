@@ -49,16 +49,15 @@ def reverse_geo_code input_file_name, output_file_name
   File.open(output_file_name, 'w') { |f| f.write("#{header}\n") }
   count = 0
   CSV.foreach(input_file_name) do |row|
-    count += 1
-    if count == 300
-      sleep(10)
-      count = 0
-    end
     latitude  = row[0]
     longitude = row[1]
     place_id  = row[2]
     response  = Faraday.get "http://where.yahooapis.com/geocode?q=#{latitude},#{longitude}&gflags=AR&flags=J&appid=#{ENV['app_id']}"
-    json_response    =  JSON.parse(response.body)["ResultSet"]
+    begin
+      json_response    =  JSON.parse(response.body)["ResultSet"]
+    rescue
+      next
+    end
 
     if json_response["Found"].to_i > 0
       result = json_response["Results"].first
@@ -70,4 +69,5 @@ def reverse_geo_code input_file_name, output_file_name
   end
   output_file_name = output_file_name.sub('public','')
   @logger.info(",,<a href='#{output_file_name}'>Download file<\/a>")
+  sleep(7)
 end
