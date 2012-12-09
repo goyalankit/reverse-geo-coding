@@ -24,6 +24,7 @@ CSV.foreach(input_file_name) do |row|
     json_response    =  JSON.parse(response.body)["ResultSet"]
   rescue
     p "error"
+    next
   end
   pbar.increment
   if json_response["Found"].to_i > 0
